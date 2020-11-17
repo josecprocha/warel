@@ -58,6 +58,8 @@
   <h1>Baixar relatório em PDF</h1>
 
   <a href="javascript:geraRelatório()" id="jspdf" class="btn btn-primary">Baixar relatório em PDF</a>
+  <br /><br />
+  <iframe id='quadro' style="width: 80%; height: 650px; z-index: 2;"></iframe>
 
   <!-- Heatmap -->
 
@@ -70,14 +72,16 @@
 
   <script type="text/javascript">
     function geraRelatório() {
-
-      // Por padrão a exportação é em papel A4, retrato e usando milímetros como unidade de medida.
-      let doc = new jsPDF();
-
-      doc.text("Teste", 10, 10);
+      atualizaRelatório()
       doc.save("relatório.pdf");
     }
-    document.getElementById('quadro-de-visualização').setAttribute('src', doc.output('bloburl'));
+    function atualizaRelatório() {
+      // Por padrão a exportação é em papel A4, retrato e usando milímetros como unidade de medida.
+      let doc = new jsPDF(); // para "limpar" o PDF, o jeito mais fácil é criar um novo.
+      doc.text("Teste", 10, 10);
+      document.getElementById('quadro').src = doc.output('datauristring'); //Saída convertida em URI, mas 'bloburl' também funciona.
+    }
+    atualizaRelatório();
   </script>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
