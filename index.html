@@ -38,7 +38,16 @@
 <body>
 
   <h1>Adicione suas conversas exportadas do WhatsApp.</h1>
+
   <p>Como exportar conversas.</p>
+
+  <div id="área-de-envio">
+    <form class="formulário-de-envio">
+      <p>Adicione os arquivos de conversas exportados do WhatsApp através do botão "Arquivo" ou arrastando e soltando na região destacada abaixo.</p>
+      <input type="file" id="arquivo" multiple accept=".txt,audio/*,video/*,image/*" onchange="handleFiles(this.files)">
+      <label class="button" for="arquivo">Adicione seus arquivos</label>
+    </form>
+  </div>
 
   <h1>Mapa de calor sobre os momentos em que mais trabalhou</h1>
 
@@ -68,6 +77,7 @@
       doc.text("Teste", 10, 10);
       doc.save("relatório.pdf");
     }
+    document.getElementById('quadro-de-visualização').setAttribute('src', doc.output('bloburl'));
   </script>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
