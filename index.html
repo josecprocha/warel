@@ -25,6 +25,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cal-heatmap/3.6.2/cal-heatmap.css" />
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cal-heatmap/3.6.2/cal-heatmap.min.js"></script>
+
+  <!-- jsPDF - http://raw.githack.com/MrRio/jsPDF/master/docs/index.html -->
+  <script type="text/javascript" src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script>
+    // import { jsPDF } from "jspdf";
+    window.jsPDF = window.jspdf.jsPDF;
+  </script>
+
 </head>
 
 <body>
@@ -38,9 +46,28 @@
 
   <h1>Conversas durante o mês</h1>
 
+  <h1>Baixar relatório em PDF</h1>
+
+  <a href="javascript:geraRelatório()" id="jspdf" class="btn btn-primary">Baixar relatório em PDF</a>
+
+  <!-- Heatmap -->
+
   <script type="text/javascript">
     var cal = new CalHeatMap();
     cal.init({});
+  </script>
+
+  <!-- PDF -->
+
+  <script type="text/javascript">
+    function geraRelatório() {
+
+      // Por padrão a exportação é em papel A4, retrato e usando milímetros como unidade de medida.
+      let doc = new jsPDF();
+
+      doc.text("Teste", 10, 10);
+      doc.save("relatório.pdf");
+    }
   </script>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
