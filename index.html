@@ -21,7 +21,10 @@
 
   <meta name="theme-color" content="#fafafa">
 
+  <!-- cal-heatmap - https://cal-heatmap.com/ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cal-heatmap/3.6.2/cal-heatmap.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cal-heatmap/3.6.2/cal-heatmap.min.js"></script>
 </head>
 
 <body>
@@ -31,7 +34,14 @@
 
   <h1>Mapa de calor sobre os momentos em que mais trabalhou</h1>
 
-  <h1>Canversas durante o mês</h1>
+  <div id="cal-heatmap"></div>
+
+  <h1>Conversas durante o mês</h1>
+
+  <script type="text/javascript">
+    var cal = new CalHeatMap();
+    cal.init({});
+  </script>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
